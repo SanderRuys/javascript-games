@@ -1,0 +1,32 @@
+*{
+    background-color:gainsboro;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+input{
+    font-size: 2rem;
+    width: 8rem;
+}
+button{
+    width: 6rem;
+    cursor: pointer;
+    transition: 0.15s;
+}
+button:active{
+    box-shadow: 0 5px rgb(102, 102, 102);
+    transform: translateY(4px);
+}
+img{
+    width: 80%;
+}
