@@ -1,0 +1,34 @@
+*{
+    
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+.border{
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(49, 49, 49);
+}
+header{
+    
+    text-align: center;
+    height : 8vh;
+}
+.dealersDeck, .bottomHalf{
+    
+    height: 44vh;
+}
+.bottomHalf{
+    display: flex;
+    flex-direction: row;
+}
+.yourDeck{
+    width: 50vw;
+}
+.info{
+    width: 50vw;
+}
+.result, .playButtons{
+    height: 22vh;
+}
