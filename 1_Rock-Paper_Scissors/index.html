@@ -7,6 +7,9 @@
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="assets/style.css">
     <script defer src="assets/script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Waiting+for+the+Sunrise&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -14,12 +17,12 @@
     </header>
     <main>
         <div class="RockPaperScissor">
-            <button onclick="rock()"><img src="assets/rock_icon.png" alt="rock"></button>
-            <button onclick="paper()"><img src="assets/paper_icon.png" alt="paper"></button>
-            <button onclick="scissor()"><img src="assets/scissor_icon.png" alt="scissor"></button>
+            <button class="disableButtons" onclick="rock()"><img src="assets/rock_icon.png" alt="rock"></button>
+            <button class="disableButtons" onclick="paper()"><img src="assets/paper_icon.png" alt="paper"></button>
+            <button class="disableButtons" onclick="scissor()"><img src="assets/scissor_icon.png" alt="scissor"></button>
         </div>
         <div class="playButtons">
-            <button onclick="letsBattle()" id="play"><img src="assets/play_icon.png" alt="battle icon"></button>
+            <button class="disableButtons" onclick="letsBattle()" id="play"><img src="assets/play_icon.png" alt="battle icon"></button>
             <button onclick="replay()" id="playAgain"><img src="assets/replay_icon.png" alt="replay icon"></button>
         </div>
         <p id="result-message">Choose between ROCK, PAPER or SCISSORS. Smack the BATLLE button to test your luck!</p>

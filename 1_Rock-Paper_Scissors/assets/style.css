@@ -4,6 +4,7 @@
     background-color: rgb(54, 53, 56);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: rgb(229, 222, 212);
+    
 }
 body{
     display: flex;
@@ -31,17 +32,27 @@ button{
     width: 8rem;
     cursor: pointer;
 }
-button:active{
+button:enabled:active{
     transform: translateY(5px);
     box-shadow: 0px 5px rgb(155, 154, 156);;
+}
+button:disabled{
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 img{
     width: 90%;
 }
-#result-message{
+#result-message, .winFont, .loseFont{
     text-align: center;
     width: 70ch;
     margin-top: 2rem;
     margin-left: auto;
     margin-right: auto;
+}
+.winFont{
+    font-family: 'Permanent Marker', cursive;
+}
+.loseFont{
+    font-family: 'Waiting for the Sunrise', cursive;
 }
