@@ -1,7 +1,7 @@
 
 let resultMessage = document.querySelector("#result-message");
-let yourPick;
-let computersPick;
+let yourPick = 0;
+let computersPick = 0;
 
 //determine your choice
 const rock = () => {
@@ -41,12 +41,47 @@ const computerChoice = () => {
 }
 
 const comparePicks = () => {
+    // rock == 1, paper == 2, scissor == 3
 
+    //draw
+    if (yourPick === 1 && computersPick === 1){
+        resultMessage.innerHTML = "it's a draw!";
+    }
+    else if (yourPick === 2 && computersPick === 2){
+        resultMessage.innerHTML = "it's a draw!";
+    }
+    else if (yourPick === 3 && computersPick === 3){
+        resultMessage.innerHTML = "it's a draw!";
+    }
+    //player wins
+    else if (yourPick === 1 && computersPick === 3){
+        resultMessage.innerHTML = "You lucky bastard, you won!!";
+    }
+    else if (yourPick === 2 && computersPick === 1){
+        resultMessage.innerHTML = "You lucky bastard, you won!!";
+    }
+    else if (yourPick === 3 && computersPick === 2){
+        resultMessage.innerHTML = "You lucky bastard, you won!!";
+    }
+    //computer wins
+    else if (yourPick === 1 && computersPick === 2){
+        resultMessage.innerHTML = "You lose!!";
+    }
+    else if (yourPick === 2 && computersPick === 3){
+        resultMessage.innerHTML = "You lose!!";
+    }
+    else if (yourPick === 3 && computersPick === 1){
+        resultMessage.innerHTML = "You lose!!";
+    }
+    else{
+        resultMessage.innerHTML = "Hey no cheating !, choose your weapon!";
+    }
 }
 
 //excecute this function when battle button is pushed
 function letsBattle() {
     console.log("let's battle");
     computerChoice();
+    comparePicks();
 }
 
