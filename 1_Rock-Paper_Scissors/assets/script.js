@@ -6,7 +6,6 @@ let yourPick = 0;
 let computersPick = 0;
 
 
-
 //determine your choice
 const rock = () => {
     resultMessage.innerHTML = "you chose ROCK";
@@ -20,7 +19,6 @@ const scissor = () => {
     resultMessage.innerHTML = "you chose SCISSORS";
     yourPick = 3;
 }
-
 
 //determine computer's choice
 const computerChoice = () => {
