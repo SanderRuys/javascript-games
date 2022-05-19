@@ -1,5 +1,6 @@
 
 let resultMessage = document.querySelector("#result-message");
+const startText = resultMessage.innerHTML;
 let yourPick = 0;
 let computersPick = 0;
 
@@ -85,3 +86,8 @@ function letsBattle() {
     comparePicks();
 }
 
+function replay(){
+    yourPick = 0;
+    computersPick = 0;
+    resultMessage.innerHTML = startText;
+}
