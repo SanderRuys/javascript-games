@@ -11,8 +11,8 @@ const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"
 const deck = [];
 let playersHand = [];
 let dealersHand = [];
-let playerPoints = 0;
-let dealerPoints = 0;
+let playerCardTotal = 0;
+let dealerCardTotal = 0;
 
 //make your full card deck
 const  createDeck = () => {
@@ -61,8 +61,12 @@ const giveCardToPlayer = () =>{
     console.log(playersHand);
 
     //check if card  > 21
-    playerPoints = playersHand.map(item => item.Weight).reduce((prev, curr) => prev + curr, 0);
-    console.log("playerPoints = " + playerPoints);
+    playerCardTotal = playersHand.map(item => item.Weight).reduce((prev, curr) => prev + curr, 0);
+    console.log("playerCardTotal = " + playerCardTotal);
+    if (playerCardTotal > 21){
+        console.log("you lose");
+    }
+    
 
 }
 const giveCardToDealer = () =>{
