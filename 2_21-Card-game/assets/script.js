@@ -6,9 +6,13 @@ All the values need to be assigned to each suit so you get 52cards in total in  
 
 const startGameButton = document.getElementById("play");
 const hitButton = document.getElementById("pick-card");
+const holdButton = document.getElementById("hold");
+const yourCardValue = document.getElementById("your-card-value");
+const dealerCardValue = document.getElementById("dealer-card-value");
 const suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
 const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 const deck = [];
+let turn = true;
 let playersHand = [];
 let dealersHand = [];
 let playerCardTotal = 0;
@@ -60,11 +64,13 @@ const giveCardToPlayer = () =>{
     playersHand.push(firstCard);
     console.log(playersHand);
 
-    //check if card  > 21
+    // check card sum value
     playerCardTotal = playersHand.map(item => item.Weight).reduce((prev, curr) => prev + curr, 0);
-    console.log("playerCardTotal = " + playerCardTotal);
+    yourCardValue.innerText = ("total: " + playerCardTotal);
+    //check if card  > 21
     if (playerCardTotal > 21){
         console.log("you lose");
+        yourCardValue.innerText = ("Bust !!! Your total is: " + playerCardTotal);
     }
     
 
@@ -75,12 +81,27 @@ const giveCardToDealer = () =>{
     //check if card  > 21
 }
 
+//stop turn after pressing hold button
+const stopTurn = () =>{
+    // your turn == true and dealers turn == false
+    //if it was your turn, give turn to dealer
+    if (turn == true){
+        turn = false;
+        console.log("turn: " + turn);
+    }
+    //if it was dealers turn, then end game
+    else{
+        console.log("end game");
+    }
+}
+
 //start the game
 const startTheGame = () => {
     createDeck();
     shuffle();
     //deal first hand
     dealFirstHand();
+    turn = true;
     //
     console.log(playersHand);
     
@@ -90,3 +111,4 @@ const startTheGame = () => {
 //button click eventListeners
 startGameButton.addEventListener("click", startTheGame);
 hitButton.addEventListener("click", giveCardToPlayer);
+holdButton.addEventListener("click", stopTurn);
