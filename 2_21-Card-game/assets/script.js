@@ -78,6 +78,11 @@ const giveCardToPlayer = () =>{
 const giveCardToDealer = () =>{
     const firstCard = deck.pop();
     dealersHand.push(firstCard);
+    //if cards < 15 take another card
+    dealerCardTotal = dealersHand.map(item => item.Weight).reduce((prev, curr) => prev + curr, 0);
+    dealerCardValue.innerText = ("total: " + dealerCardValue);
+    //if cards > 15 stop
+
     //check if card  > 21
 }
 
@@ -88,6 +93,7 @@ const stopTurn = () =>{
     if (turn == true){
         turn = false;
         console.log("turn: " + turn);
+        giveCardToDealer();
     }
     //if it was dealers turn, then end game
     else{
