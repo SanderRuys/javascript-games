@@ -87,7 +87,7 @@ const giveCardToDealer = () =>{
     dealersHand.push(firstCard);
     //if cards < 15 take another card
     dealerCardTotal = dealersHand.map(item => item.Weight).reduce((prev, curr) => prev + curr, 0);
-    dealerCardValue.innerText = ("total: " + dealerCardValue);
+    dealerCardValue.innerText = ("total: " + dealerCardTotal);
     //if cards > 15 stop
 
     //check if card  > 21
