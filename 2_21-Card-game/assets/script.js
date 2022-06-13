@@ -12,6 +12,7 @@ const dealerCardValue = document.getElementById("dealer-card-value");
 const suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
 const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 const deck = [];
+const placeCards = document.querySelector(".placeCards");
 let turn = true;
 let playersHand = [];
 let dealersHand = [];
@@ -65,6 +66,10 @@ const giveCardToPlayer = () =>{
     console.log("firstcard player value = " + firstCard.Value);
     console.log("firstcard player suit = " + firstCard.Suit);
     console.log("playershand = " + playersHand);
+    let card = document.createElement("img");
+    card.src = "images/" + firstCard.Value + "-" + firstCard.Suit + ".png";
+    placeCards.appendChild(card);
+
 
     // check card sum value
     playerCardTotal = playersHand.map(item => item.Weight).reduce((prev, curr) => prev + curr, 0);

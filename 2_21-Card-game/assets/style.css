@@ -53,3 +53,6 @@ button{
     cursor: pointer;
     border-color: rgb(226, 235, 243);
 }
+img{
+    width: 20%;
+}
