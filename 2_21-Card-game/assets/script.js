@@ -62,7 +62,9 @@ const dealFirstHand = () =>{
 const giveCardToPlayer = () =>{
     const firstCard = deck.pop();
     playersHand.push(firstCard);
-    console.log(playersHand);
+    console.log("firstcard player value = " + firstCard.Value);
+    console.log("firstcard player suit = " + firstCard.Suit);
+    console.log("playershand = " + playersHand);
 
     // check card sum value
     playerCardTotal = playersHand.map(item => item.Weight).reduce((prev, curr) => prev + curr, 0);
