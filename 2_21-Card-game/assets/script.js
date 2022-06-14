@@ -20,6 +20,16 @@ let dealersHand = [];
 let playerCardTotal = 0;
 let dealerCardTotal = 0;
 
+//Clear the game
+const clearGame = () =>{
+    placeCards.innerHTML = "";
+    placeDealerCards.innerHTML = "";
+    playersHand.length = 0;
+    dealersHand.length = 0;
+    playerCardTotal = 0;
+    dealerCardTotal = 0;
+}
+
 //make your full card deck
 const  createDeck = () => {
     for (let i = 0 ; i < values.length; i++)
@@ -93,12 +103,32 @@ const giveCardToDealer = () =>{
     card.src = "images/BACK.png";
     placeDealerCards.appendChild(card);
 
-    //if cards < 15 take another card
+    //total cards
     dealerCardTotal = dealersHand.map(item => item.Weight).reduce((prev, curr) => prev + curr, 0);
     dealerCardValue.innerText = ("total: " + dealerCardTotal);
-    //if cards > 15 stop
+   
+}
 
-    //check if card  > 21
+// check winner and end game
+const checkWinner = () =>{
+    hitButton.disabled = true;
+    holdButton.disabled = true;
+    if(playerCardTotal > 21 && dealerCardTotal < 21){
+        alert("You Lose! Dealer wins!");
+    } else if(playerCardTotal < 21 && dealerCardTotal > 21){
+        alert("You Win!");
+    }
+    else if(playerCardTotal > 21 && dealerCardTotal > 21){
+        alert("Losers");
+    }
+    else{
+        if(playerCardTotal > dealerCardTotal){
+            alert("You Win!");
+        }
+        else{
+            alert("You Lose! Dealer wins!");
+        }
+    }
 }
 
 //stop turn after pressing hold button
@@ -108,16 +138,26 @@ const stopTurn = () =>{
     if (turn == true){
         turn = false;
         console.log("turn: " + turn);
-        giveCardToDealer();
+        //start Dealers turn
+        //if cards > 15 stop
+        while(dealerCardTotal < 15){
+            giveCardToDealer();
+        } 
     }
     //if it was dealers turn, then end game
     else{
         console.log("end game");
     }
+    if (dealerCardTotal >= 15){
+        checkWinner();
+    }
 }
 
 //start the game
 const startTheGame = () => {
+    hitButton.disabled = false;
+    holdButton.disabled = false;
+    clearGame();
     createDeck();
     shuffle();
     //deal first hand
