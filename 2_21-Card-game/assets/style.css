@@ -54,5 +54,6 @@ button{
     border-color: rgb(226, 235, 243);
 }
 img{
-    width: 20%;
+    height: 24vmin;
+    margin: 0.2rem;
 }

@@ -13,6 +13,7 @@ const suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
 const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 const deck = [];
 const placeCards = document.querySelector(".placeCards");
+const placeDealerCards = document.querySelector(".dealerCards");
 let turn = true;
 let playersHand = [];
 let dealersHand = [];
@@ -66,6 +67,7 @@ const giveCardToPlayer = () =>{
     console.log("firstcard player value = " + firstCard.Value);
     console.log("firstcard player suit = " + firstCard.Suit);
     console.log("playershand = " + playersHand);
+    //draw Cards
     let card = document.createElement("img");
     card.src = "images/" + firstCard.Value + "-" + firstCard.Suit + ".png";
     placeCards.appendChild(card);
@@ -78,6 +80,7 @@ const giveCardToPlayer = () =>{
     if (playerCardTotal > 21){
         console.log("you lose");
         yourCardValue.innerText = ("Bust !!! Your total is: " + playerCardTotal);
+        hitButton.disabled = true;
     }
     
 
@@ -85,6 +88,11 @@ const giveCardToPlayer = () =>{
 const giveCardToDealer = () =>{
     const firstCard = deck.pop();
     dealersHand.push(firstCard);
+    //draw Cards
+    let card = document.createElement("img");
+    card.src = "images/BACK.png";
+    placeDealerCards.appendChild(card);
+
     //if cards < 15 take another card
     dealerCardTotal = dealersHand.map(item => item.Weight).reduce((prev, curr) => prev + curr, 0);
     dealerCardValue.innerText = ("total: " + dealerCardTotal);
