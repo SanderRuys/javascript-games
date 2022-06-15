@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vmin;
+    justify-content: center;
+    margin: 5vmin;
+}
+img{
+    flex: 1 0 15%;
+    border-style: solid;
+    border-width: 0.2rem;
+    border-radius: 0.5rem;
+}
